@@ -15,7 +15,7 @@ This log of the likeihood function is derived from taking the log of the likelih
 ![image](https://user-images.githubusercontent.com/64437206/110544043-be692400-80f0-11eb-9273-5e08baf66069.png)
 
 
-
+# Creating the model
 Since the log likelihood function is an absolute value function, it’s derivative cannot be taken hence no closed form solution. We’re trying to find the max likelihood of theta given x,y. I managed to construct an algorithm, in which I have created random samples of X and Y using the random and distributions packages.  
 ```
 using Random, Distributions
@@ -38,5 +38,38 @@ function derivat(Beta)
     return g2
 end
 ```
+# Optimization Algorithm - Bisection
 
-With this function, I run it through the bisection function, and I run the log likelihood function through the optimize function, my results are in Figure.In which a maximum for theta is .0202 for both techniques.
+Here is there bisection algorithm, which is a rooting finding algorithms that works with continuous functions. The algorithm specifically takes advantage of the fact that when two outputs have different signs, the zero lies somewhere inbetween.
+```
+function bisection(fun,a,b,tol)
+    sa = sign(fun(a))
+    sb = sign(fun(b))
+    if sa == sb
+        error("Interval is not valid")
+    end
+
+    while abs(b-a)>tol
+        c = (a+b)/2
+        sc = sign(fun(c))
+        if sc == 0
+            a,b = c,c
+        elseif sa==sc
+            a,b = c,b
+        else
+            a,b = a,c
+        end
+    end
+    return (a+b)/2
+end
+````
+ I call my bisection algorithm to optimize the derivative function. I also use the optimize package to also optimize the log like function, just to compare my answers and make sure my bisection algorithm works.
+
+```
+ mle = bisection(derivat,.0001, 100, 1e-15)
+using Optim
+opt = optimize(loglike, .0001, 100, Brent())
+```
+![image](https://user-images.githubusercontent.com/64437206/110545876-5cf68480-80f3-11eb-92d1-13ecc717993a.png)
+
+  In which a maximum for theta is .0202 for both techniques. This suggest that the coefficient of the lad estimator is .02022.
