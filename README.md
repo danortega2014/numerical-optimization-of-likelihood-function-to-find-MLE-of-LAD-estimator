@@ -1,7 +1,7 @@
 # numerical-optimization-of-likelihood-function-to-find-MLE-of-LAD-estimator
 
 For econometrics, Maximum Likelihood Estimation is a very popular estimating technique, in which not all estimators have closed form solutions (meaning you can't solve it on a computer, you have to compute it!). Maximum likelihood estimates is the estimate which is the maximum of the likelihood of receiving a specific parameter estimate given the data.  Meaning the data is most probable in the statistical model given a specific point in the parameter space of the model. The data is also assumed follow a certain statistical model.
- The example I am doing is the MLE of the LAD estimator. Which can be represented by this parametic model:
+ The example I am doing is the MLE of the Least-Absolute Deviation estimator. Which compared to OLS, LAD equally weights all samples and therefore is robust to outliers. MLE of the LAD estimator can be represented by this parametic model:
 
 ![image](https://user-images.githubusercontent.com/64437206/110543875-7d710f80-80f0-11eb-94bb-79b6772f9449.png)
 
