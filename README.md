@@ -16,7 +16,7 @@ This log of the likeihood function is derived from taking the log of the likelih
 
 
 # Creating the model
-Since the log likelihood function is an absolute value function, it’s derivative cannot be taken hence no closed form solution. We’re trying to find the max likelihood of theta given x,y. I managed to construct an algorithm, in which I have created random samples of X and Y using the random and distributions packages.  
+Since the log likelihood function is an absolute value function, it’s derivative cannot be taken hence no closed form solution. We’re trying to find the max likelihood of theta given x,y. I have created random samples of X and Y using the random and distributions packages to test our model.
 ```
 using Random, Distributions
 
@@ -40,7 +40,7 @@ end
 ```
 # Optimization Algorithm - Bisection
 
-Here is there bisection algorithm, which is a rooting finding algorithms that works with continuous functions. The algorithm specifically takes advantage of the fact that when two outputs have different signs, the zero lies somewhere inbetween.
+Here is the bisection algorithm, which is a rooting finding algorithms that works with continuous functions. The algorithm specifically takes advantage of the fact that when two outputs have different signs, the zero lies somewhere inbetween. 
 ```
 function bisection(fun,a,b,tol)
     sa = sign(fun(a))
