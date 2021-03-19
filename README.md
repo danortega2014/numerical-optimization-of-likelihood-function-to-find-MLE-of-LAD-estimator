@@ -7,7 +7,7 @@ The example I am doing is the MLE of the Least-Absolute Deviation estimator. Whi
 ![image](https://user-images.githubusercontent.com/64437206/110543875-7d710f80-80f0-11eb-94bb-79b6772f9449.png)
 
 
-This log of the likeihood function is derived from taking the log of the likelihood pdf of y. Which in this case is:
+This log of the likeihood function is derived from taking the log of the likelihood pdf of y. The pdf of this model is simply the derivative of the cdf, which is:
 
 ![image](https://user-images.githubusercontent.com/64437206/110544043-be692400-80f0-11eb-9273-5e08baf66069.png)
 
